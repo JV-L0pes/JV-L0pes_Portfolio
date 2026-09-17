@@ -67,12 +67,12 @@ const pt: CaseStudy = {
         {
           kind: "p",
           text:
-            "O CRM era usado todo dia pelo time comercial. O problema não era adoção, era fundação.",
+            "O CRM era usado todo dia pelo time comercial. O que faltava era fundação.",
         },
         {
           kind: "p",
           text:
-            "Tinha sido construído às pressas, sobre um modelo de dados que não sustentava o que o produto passou a pedir. O efeito aparecia no uso: boa parte das funções existia no papel e não era usada na prática. Não por desconhecimento, mas porque não entregavam de forma confiável o suficiente para alguém apoiar o próprio trabalho nelas.",
+            "Tinha sido construído às pressas, sobre um modelo de dados que não sustentava o que o produto passou a pedir. O efeito aparecia no uso: boa parte das funções existia no papel e seguia sem uso na prática, porque ninguém apoia o próprio trabalho numa função que entrega de forma irregular.",
         },
         {
           kind: "p",
@@ -112,11 +112,11 @@ const pt: CaseStudy = {
         {
           kind: "p",
           text:
-            "Reconstruir o CRM do zero como serviço próprio do ecossistema, em vez de remendar a fundação por partes. Três definições sustentam isso.",
+            "Reconstruir o CRM do zero como serviço próprio do ecossistema. Três definições sustentam a escolha.",
         },
         {
           kind: "lead",
-          label: "Serviço dedicado, não módulo.",
+          label: "Serviço dedicado.",
           text:
             "O domínio comercial tem ciclo de mudança próprio, e um serviço separado dá a ele deploy independente sem prender o resto da plataforma.",
         },
@@ -124,13 +124,13 @@ const pt: CaseStudy = {
           kind: "lead",
           label: "Mesmo banco, schema separado.",
           text:
-            "Não criamos uma base nova. O serviço vive no banco da plataforma com schema próprio, o que mantém a fronteira de domínio explícita sem pagar o custo de mais uma instância para monitorar, versionar e restaurar.",
+            "O serviço vive no banco da plataforma, com schema próprio: fronteira de domínio explícita sem pagar o custo de mais uma instância para monitorar, versionar e restaurar.",
         },
         {
           kind: "lead",
-          label: "Autorização reaproveitada, não duplicada.",
+          label: "Autorização delegada.",
           text:
-            "O serviço de autorização já existia, criado antes para resolver quem enxerga o quê. O CRM novo delega a ele em vez de trazer regra de permissão para dentro. Regra de acesso duplicada é como brecha nasce.",
+            "O serviço de autorização já existia, criado antes para resolver quem enxerga o quê. O CRM novo delega a ele e mantém a regra de permissão num lugar só; regra de acesso duplicada é como brecha nasce.",
         },
       ],
     },
@@ -145,12 +145,12 @@ const pt: CaseStudy = {
         {
           kind: "p",
           text:
-            "A base herdada estava suja e sem padrão. Construímos um processo de ETL para extrair, reorganizar e reestruturar tudo antes de entrar no schema novo, em vez de despejar o legado dentro de um modelo limpo e contaminá-lo no primeiro dia.",
+            "A base herdada estava suja e sem padrão. Antes de entrar no schema novo, tudo passou por um processo de ETL para extrair, reorganizar e reestruturar. Despejar o legado direto num modelo limpo teria contaminado o schema no primeiro dia.",
         },
         {
           kind: "p",
           text:
-            "Essa é a decisão silenciosa que define se uma migração dura. Modelo novo com dado velho e sujo dentro não é modelo novo. É o problema anterior com outra roupa.",
+            "Essa é a decisão silenciosa que define se uma migração dura: dado velho dentro de um modelo novo carrega o problema anterior com outra roupa.",
         },
       ],
     },
@@ -177,7 +177,7 @@ const pt: CaseStudy = {
         {
           kind: "p",
           text:
-            "O que importa não é a contagem, é a consequência: coluna nova no banco não aparece sozinha na resposta. Devolver o objeto do ORM direto transforma toda migration numa chance de expor campo interno.",
+            "A consequência importa mais que a contagem: coluna nova no banco não aparece sozinha na resposta. Devolver o objeto do ORM direto transforma toda migration numa chance de expor campo interno.",
         },
         {
           kind: "p",
@@ -201,7 +201,7 @@ const pt: CaseStudy = {
         {
           kind: "p",
           text:
-            "E o contrato precisou ser refeito. A primeira versão ainda carregava o formato do sistema antigo, porque era o que existia para integrar. Só depois de reprojetar do zero ele passou a refletir o domínio de verdade em vez do legado.",
+            "E o contrato precisou ser refeito. A primeira versão ainda carregava o formato do sistema antigo, porque era o que existia para integrar. Depois de reprojetar do zero, ele passou a refletir o domínio de verdade.",
         },
       ],
     },
@@ -234,13 +234,13 @@ const pt: CaseStudy = {
           kind: "lead",
           label: "O contrato de API.",
           text:
-            "Foi desenhado em cima do que o sistema antigo expunha, porque era o que estava na mesa. Deu retrabalho. Hoje eu defenderia modelar o domínio primeiro e tratar o legado como detalhe de migração, não como ponto de partida.",
+            "Foi desenhado em cima do que o sistema antigo expunha, porque era o que estava na mesa. Deu retrabalho. Hoje eu defenderia modelar o domínio primeiro e tratar o legado como detalhe de migração.",
         },
         {
           kind: "lead",
           label: "O resto eu repetiria.",
           text:
-            "Reconstruir em vez de remendar foi o caminho mais trabalhoso e é o que sustentou o resultado. A estrutura está sólida.",
+            "Reconstruir foi o caminho mais trabalhoso e é o que sustentou o resultado. A estrutura está sólida.",
         },
       ],
     },
@@ -251,11 +251,11 @@ const pt: CaseStudy = {
         {
           kind: "p",
           text:
-            "Função que ninguém usa dentro de um sistema que todo mundo usa raramente é problema de treinamento. É sintoma de fundação: em geral, a função existe mas não entrega de forma confiável o bastante para alguém apostar o próprio trabalho nela.",
+            "Quando ninguém usa uma função num sistema que todo mundo usa, o treinamento raramente explica. Em geral, a função existe mas não entrega de forma confiável o bastante para alguém apostar o próprio trabalho nela.",
         },
         {
           kind: "p",
-          text: "E migração não termina quando o código novo sobe. Termina quando o dado antigo entrou limpo.",
+          text: "E uma migração termina quando o dado antigo entrou limpo, depois do código novo no ar.",
         },
       ],
     },
@@ -302,11 +302,11 @@ const en: CaseStudy = {
       n: "02",
       heading: "The problem",
       blocks: [
-        { kind: "p", text: "The CRM was used every day by the sales team. The problem was not adoption, it was foundation." },
+        { kind: "p", text: "The CRM was used every day by the sales team. What it lacked was foundation." },
         {
           kind: "p",
           text:
-            "It had been built in a hurry, on a data model that could not support what the product had come to demand. The effect showed up in usage: many features existed on paper and were not used in practice. Not out of ignorance, but because they did not deliver reliably enough for anyone to rest their own work on them.",
+            "It had been built in a hurry, on a data model that could not support what the product had come to demand. The effect showed up in usage: many features existed on paper and stayed unused in practice, because nobody rests their own work on a feature that delivers unevenly.",
         },
         {
           kind: "p",
@@ -346,11 +346,11 @@ const en: CaseStudy = {
         {
           kind: "p",
           text:
-            "Rebuild the CRM from scratch as its own service in the ecosystem, rather than patching the foundation piece by piece. Three definitions hold that up.",
+            "Rebuild the CRM from scratch as its own service in the ecosystem. Three definitions hold the choice up.",
         },
         {
           kind: "lead",
-          label: "A dedicated service, not a module.",
+          label: "A dedicated service.",
           text:
             "The sales domain has its own rate of change, and a separate service gives it independent deploys without holding back the rest of the platform.",
         },
@@ -358,13 +358,13 @@ const en: CaseStudy = {
           kind: "lead",
           label: "Same database, separate schema.",
           text:
-            "We did not create a new database. The service lives in the platform database with its own schema, which keeps the domain boundary explicit without paying for one more instance to monitor, version and restore.",
+            "The service lives in the platform database, with its own schema: the domain boundary stays explicit without paying for one more instance to monitor, version and restore.",
         },
         {
           kind: "lead",
-          label: "Authorisation reused, not duplicated.",
+          label: "Authorisation delegated.",
           text:
-            "The authorisation service already existed, built earlier to settle who sees what. The new CRM delegates to it instead of pulling permission rules inside. Duplicated access rules are how gaps are born.",
+            "The authorisation service already existed, built earlier to settle who sees what. The new CRM delegates to it and keeps permission rules in one place; duplicated access rules are how gaps are born.",
         },
       ],
     },
@@ -376,12 +376,12 @@ const en: CaseStudy = {
         {
           kind: "p",
           text:
-            "The inherited database was dirty and inconsistent. We built an ETL process to extract, reorganise and restructure everything before it entered the new schema, rather than pouring the legacy into a clean model and contaminating it on day one.",
+            "The inherited database was dirty and inconsistent. Everything went through an ETL process to extract, reorganise and restructure before entering the new schema. Pouring the legacy straight into a clean model would have contaminated the schema on day one.",
         },
         {
           kind: "p",
           text:
-            "That is the quiet decision that determines whether a migration lasts. A new model with old dirty data inside is not a new model. It is the previous problem in new clothes.",
+            "That is the quiet decision that determines whether a migration lasts: old data inside a new model carries the previous problem along in new clothes.",
         },
       ],
     },
@@ -407,7 +407,7 @@ const en: CaseStudy = {
         {
           kind: "p",
           text:
-            "What matters is not the count, it is the consequence: a new database column never shows up in a response on its own. Returning the ORM object directly turns every migration into a chance to expose an internal field.",
+            "The consequence matters more than the count: a new database column never shows up in a response on its own. Returning the ORM object directly turns every migration into a chance to expose an internal field.",
         },
         {
           kind: "p",
@@ -430,7 +430,7 @@ const en: CaseStudy = {
         {
           kind: "p",
           text:
-            "And the contract had to be redone. The first version still carried the shape of the old system, because that was what existed to integrate with. Only after redesigning it from scratch did it start reflecting the real domain instead of the legacy.",
+            "And the contract had to be redone. The first version still carried the shape of the old system, because that was what existed to integrate with. After redesigning it from scratch, it started reflecting the real domain.",
         },
       ],
     },
@@ -463,12 +463,12 @@ const en: CaseStudy = {
           kind: "lead",
           label: "The API contract.",
           text:
-            "It was designed on top of what the old system exposed, because that was what was on the table. It caused rework. Today I would argue for modelling the domain first and treating the legacy as a migration detail, not as a starting point.",
+            "It was designed on top of what the old system exposed, because that was what was on the table. It caused rework. Today I would argue for modelling the domain first and treating the legacy as a migration detail.",
         },
         {
           kind: "lead",
           label: "The rest I would repeat.",
-          text: "Rebuilding instead of patching was the harder path and it is what held the result up. The structure is solid.",
+          text: "Rebuilding was the harder path and it is what held the result up. The structure is solid.",
         },
       ],
     },
@@ -479,11 +479,11 @@ const en: CaseStudy = {
         {
           kind: "p",
           text:
-            "A feature nobody uses inside a system everybody uses is rarely a training problem. It is a symptom of foundation: usually the feature exists but does not deliver reliably enough for anyone to bet their own work on it.",
+            "When nobody uses a feature in a system everybody uses, training rarely explains it. More often than not, the feature exists but does not deliver reliably enough for anyone to bet their own work on it.",
         },
         {
           kind: "p",
-          text: "And a migration does not end when the new code ships. It ends when the old data has come in clean.",
+          text: "And a migration ends when the old data has come in clean, after the new code ships.",
         },
       ],
     },

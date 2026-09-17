@@ -23,10 +23,17 @@
   z-index: 60;
 }
 
-/* ---- revelacao mascarada ---- */
-.line { display: block; overflow: hidden; padding-bottom: .06em; }
+/* ---- revelacao mascarada ----
+   Com line-height .86, o descendente do "j" e do "c cedilha" passa do
+   line box e o overflow:hidden fatiava a perna da letra. O padding
+   estende a area de recorte ate o descendente; o margin negativo devolve
+   o mesmo espaco ao layout, entao so a mascara muda. */
+.line {
+  display: block; overflow: hidden;
+  padding-bottom: .24em; margin-bottom: -.18em;
+}
 .line > span {
-  display: block; transform: translateY(108%);
+  display: block; transform: translateY(135%);
   transition: transform 1.05s var(--soft);
 }
 .on .line > span, .line.on > span { transform: none; }
