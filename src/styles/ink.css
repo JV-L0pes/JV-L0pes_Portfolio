@@ -19,7 +19,7 @@
 /* ---- progresso ---- */
 .prog {
   position: fixed; top: 0; left: 0; height: 2px; width: 100%;
-  background: var(--ink); transform: scaleX(0); transform-origin: 0 50%;
+  background: var(--gold); transform: scaleX(0); transform-origin: 0 50%;
   z-index: 60;
 }
 
@@ -68,9 +68,9 @@
   width: 34px; height: 34px; display: grid; place-items: center;
   background: var(--ink); color: var(--paper); text-decoration: none;
   font-weight: 800; font-size: .72rem; letter-spacing: -.02em; flex: none;
-  transition: transform .5s var(--ease);
+  transition: transform .5s var(--ease), background .4s var(--ease), color .4s var(--ease);
 }
-.mark:hover { transform: rotate(-90deg); }
+.mark:hover { transform: rotate(-90deg); background: var(--gold-fill); color: var(--on-gold); }
 .late {
   overflow: hidden; max-width: 0; opacity: 0; white-space: nowrap;
   transition: max-width .8s var(--soft), opacity .5s var(--ease);
@@ -84,7 +84,7 @@
   background: transparent; color: var(--ash); cursor: pointer;
   transition: .3s var(--ease);
 }
-.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg button[aria-pressed="true"] { background: var(--gold-fill); color: var(--on-gold); }
 
 .sq {
   width: 34px; height: 34px; display: grid; place-items: center;
@@ -105,7 +105,12 @@
 .hero-role { color: var(--ash); margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem); }
 .hero-cta { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
 .lede { font-size: clamp(1.02rem, 1.4vw, 1.08rem); max-width: 42ch; color: var(--ash); margin: clamp(1.75rem, 3vw, 2.25rem) 0 0; }
-.lede strong { color: var(--ink); font-weight: 600; }
+.lede strong {
+  color: var(--ink); font-weight: 600;
+  text-decoration: underline; text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px; text-underline-offset: .22em;
+  text-decoration-skip-ink: none;
+}
 
 /* trilho de informacao, com o retrato dentro */
 .rail { display: flex; flex-direction: column; gap: 1.35rem; }
@@ -145,13 +150,13 @@
   font-weight: 600; font-size: .95rem; will-change: transform;
   transition: background .45s var(--ease), color .45s var(--ease);
 }
-.pill:hover { background: transparent; color: var(--ink); }
+.pill:hover { background: transparent; border-color: var(--gold); color: var(--gold); }
 .plain {
   display: inline-flex; align-items: center; gap: .4rem; text-decoration: none;
   font-size: .95rem; border-bottom: 1px solid var(--rule); padding-bottom: 2px;
   transition: .35s var(--ease);
 }
-.plain:hover { border-color: var(--ink); }
+.plain:hover { border-color: var(--gold); color: var(--gold); }
 
 /* ---- seta que vira na diagonal ---- */
 .arw { display: inline-flex; transition: transform .4s var(--ease); will-change: transform; }
@@ -168,7 +173,7 @@ a:hover .arw, a.wrow:hover .arw, .pill:hover .arw { transform: translate(5px, -1
 }
 .band-track { display: inline-block; will-change: transform; }
 .band span { padding: 0 1.5rem; }
-.band .sep { color: var(--gold-invert); }
+.band .sep { color: var(--gold-fill); }
 .sr-only {
   position: absolute; top: 0; left: 0;
   width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -179,7 +184,21 @@ a:hover .arw, a.wrow:hover .arw, .pill:hover .arw { transform: translate(5px, -1
    O feedback foi que nao dava para ver onde uma secao comeca nem o que e
    um projeto. Regra grossa no topo de cada secao, rotulo em mono acima do
    titulo, e a categoria ganha regra propria mais leve. */
-.sec-head { border-top: 2px solid var(--ink); padding-top: 1.25rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.sec-head { position: relative; border-top: 2px solid var(--ink); padding-top: 1.25rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+
+/* registro dourado no inicio de cada regra de secao: o mesmo gesto curto
+   repetido na home e no estudo de caso, para o dourado marcar fronteira
+   sem decorar o meio do conteudo */
+.sec-head, .tail, .case-head, .case-end { position: relative; }
+.sec-head::before, .tail::before, .case-head::before, .case-end::before {
+  content: ""; position: absolute; left: 0;
+  width: clamp(2.25rem, 5vw, 3.75rem); background: var(--gold);
+}
+.sec-head::before, .case-head::before, .case-end::before { height: 2px; }
+.tail::before { height: 1px; top: -1px; }
+.sec-head::before { top: -2px; }
+.case-head::before { bottom: -2px; }
+.case-end::before { top: -2px; }
 .sec-head .kicker { display: block; color: var(--ash); margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
 .sec-head .row { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; }
 .cat { border-top: 1px solid var(--rule); padding-top: clamp(1.5rem, 3vw, 2.25rem); }
@@ -211,8 +230,8 @@ div.wrow { cursor: default; }
 .wrow h3 { font-size: clamp(1.75rem, 4.4vw, 3.6rem); }
 .cat-body .wrow h3 { font-size: clamp(1.45rem, 3vw, 2.35rem); }
 .wdesc { color: var(--ash); margin: .6rem 0 0; max-width: 64ch; font-size: .95rem; }
-.go { display: inline-flex; align-items: center; gap: .5rem; color: var(--ash); transition: transform .5s var(--ease); }
-a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
+.go { display: inline-flex; align-items: center; gap: .5rem; color: var(--ash); transition: transform .5s var(--ease), color .4s var(--ease); }
+a.wrow:hover .go { transform: translateX(6px); color: var(--gold); }
 .priv { color: var(--ash); opacity: .75; }
 .stack { margin: .9rem 0 0; color: var(--ash); }
 
@@ -232,7 +251,7 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
   color: var(--gold); margin-bottom: .55rem;
 }
 .impact p { margin: 0; font-size: 1.05rem; line-height: 1.55; color: var(--ink); font-weight: 500; }
-.impact p strong { font-weight: 700; }
+.impact p strong { font-weight: 700; color: var(--gold); }
 
 .num { font-variant-numeric: tabular-nums; }
 
@@ -247,10 +266,10 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
 .led {
   display: grid; grid-template-columns: 1fr; gap: .9rem;
   padding-block: 2.25rem; border-bottom: 1px solid var(--rule);
-  transition: background .5s var(--ease);
+  transition: background .5s var(--ease), box-shadow .5s var(--ease);
 }
 @media (min-width: 960px) { .led { grid-template-columns: 14rem 1fr; gap: 3rem; } }
-.led:hover { background: var(--hover-bg); }
+.led:hover { background: var(--hover-bg); box-shadow: inset 2px 0 0 var(--gold); }
 .led ul { margin: .6rem 0 0; padding-left: 1.15rem; color: var(--ash); font-size: .94rem; list-style: disc; }
 .led li { margin-bottom: .3rem; }
 .led li::marker { color: var(--rule); }
@@ -269,20 +288,22 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
   padding: .95rem 0; border-bottom: 1px solid var(--rule);
   text-decoration: none; transition: padding-left .4s var(--ease);
 }
-.more a:hover { padding-left: .75rem; }
+.more a:hover { padding-left: .75rem; border-bottom-color: var(--gold); }
 .more .ext {
   flex: none; margin-top: .1rem; color: var(--ash);
   transition: transform .4s var(--ease), color .4s var(--ease);
 }
-.more a:hover .ext { transform: translate(3px, -3px); color: var(--ink); }
+.more a:hover .ext { transform: translate(3px, -3px); color: var(--gold); }
 .more h3 { margin: 0 0 .28rem; font-size: 1rem; font-weight: 600; letter-spacing: -.015em; }
 .more p { margin: 0; font-size: .86rem; color: var(--ash); line-height: 1.5; }
 
 /* ---- fecho ---- */
 .close { background: var(--ink); color: var(--paper); }
 .close h2 { font-size: clamp(2.6rem, 9vw, 8rem); }
+.close .pill { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.close .pill:hover { background: var(--gold-fill); color: var(--on-gold); border-color: var(--gold-fill); }
 .close .plain { border-color: color-mix(in srgb, var(--paper) 28%, transparent); color: var(--paper); }
-.close .plain:hover { border-color: var(--paper); }
+.close .plain:hover { border-color: var(--gold-invert); color: var(--gold-invert); }
 
 /* ---- rodape ---- */
 .foot { border-top: 1px solid var(--rule); background: var(--paper); color: var(--ash); }
@@ -296,7 +317,7 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
 .foot ul { list-style: none; margin: 0; padding: 0; }
 .foot li { margin-bottom: .55rem; }
 .foot a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .35s var(--ease); }
-.foot a:hover { border-color: var(--ink); }
+.foot a:hover { border-color: var(--gold); }
 .colo { font-size: .86rem; line-height: 1.7; max-width: 34ch; margin: 0; }
 .colo strong { color: var(--ink); font-weight: 600; }
 .foot-bar {
@@ -309,7 +330,7 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
   letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
   color: var(--ash); transition: color .35s var(--ease);
 }
-.totop:hover { color: var(--ink); }
+.totop:hover { color: var(--gold); }
 .totop .arrw { display: inline-flex; transition: transform .4s var(--ease); }
 .totop:hover .arrw { transform: translateY(-4px); }
 
@@ -343,6 +364,16 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
       animation-range: entry 0% cover 40%;
     }
     @keyframes port { from { clip-path: inset(12% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+    /* o numero de cada secao do estudo de caso acende em dourado conforme
+       a secao entra na tela: o trilho vira um indice de leitura */
+    .case-sec { view-timeline-name: --case-sec; }
+    .case-rail span {
+      animation: rail-lit linear both;
+      animation-timeline: --case-sec;
+      animation-range: entry 30% cover 35%;
+    }
+    @keyframes rail-lit { from { color: var(--ash); } to { color: var(--gold); } }
   }
 }
 
@@ -359,7 +390,7 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
   color: var(--ash); text-decoration: none;
   transition: color .35s var(--ease);
 }
-.case-back:hover { color: var(--ink); }
+.case-back:hover { color: var(--gold); }
 /* a mesma seta diagonal de link externo, girada para apontar de volta */
 .case-back .back-arw { transform: rotate(-135deg); transition: transform .4s var(--ease); }
 .case-back:hover .back-arw { transform: rotate(-135deg) translate(2px, -2px); }
@@ -420,7 +451,7 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
   counter-increment: caseopt; content: counter(caseopt, decimal-leading-zero);
   position: absolute; left: 0; top: .15em;
   font-family: var(--font-martian-mono), monospace; font-size: .68rem;
-  color: var(--ash); letter-spacing: .08em;
+  color: var(--gold); letter-spacing: .08em;
 }
 .case-ul li::before {
   content: ''; position: absolute; left: .35rem; top: .72em;
@@ -451,5 +482,5 @@ a.wrow:hover .go { transform: translateX(6px); color: var(--ink); }
 }
 a.wrow:hover .case-cta,
 a.wrow:focus-visible .case-cta {
-  background: var(--ink); color: var(--paper);
+  background: var(--gold-fill); border-color: var(--gold-fill); color: var(--on-gold);
 }
