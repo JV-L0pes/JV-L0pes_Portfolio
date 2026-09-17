@@ -23,6 +23,7 @@ export default function Closing() {
             href="mailto:joao.v.lopes.rosa@gmail.com"
             className="pill"
             data-magnet
+            style={{ background: "var(--paper)", color: "var(--ink)", borderColor: "var(--paper)" }}
           >
             joao.v.lopes.rosa@gmail.com <ArrowRight className="arw" />
           </a>

@@ -13,7 +13,6 @@
   --gold: #8A6B00;
   --gold-fill: #F3CA4D;
   --gold-invert: #F3CA4D;
-  --on-gold: #0D0D0C;
   --bar-bg: rgba(251, 251, 249, .92);
   --hover-bg: #F5F4F0;
   --close-muted: #8C8A84;
@@ -89,15 +88,13 @@ h1, h2, h3 {
 
 a { color: inherit; }
 
-::selection { background: color-mix(in srgb, var(--gold) 26%, transparent); }
-
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
-.close a:focus-visible { outline-color: var(--gold-invert); }
+.close a:focus-visible { outline-color: var(--paper); }
 
 :root[data-theme="dark"] .portrait {
   filter: grayscale(1) contrast(.95) brightness(.92);

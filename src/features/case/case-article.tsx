@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { ArrowRight, ArrowUpRight } from "@/components/icons";
 import Interactions from "@/components/interactions";
 import SiteFooter from "@/features/shell/site-footer";
-import ScrollProgress from "@/features/shell/scroll-progress";
 import TopBar from "@/features/shell/top-bar";
 import { caseStudy, type CaseBlock } from "@/lib/case-study";
 import { useLanguage } from "@/lib/language-context";
@@ -47,7 +46,6 @@ export default function CaseArticle() {
 
   return (
     <>
-      <ScrollProgress />
       <TopBar />
 
       <main className="shell case">
