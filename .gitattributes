@@ -1,0 +1,9 @@
+# Normaliza para LF no repositorio. No Windows o autocrlf converte o
+# working tree e gera churn a cada commit; aqui a regra fica explicita.
+* text=auto eol=lf
+
+# Binarios: git nao deve tentar normalizar nem diffar linha a linha.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
