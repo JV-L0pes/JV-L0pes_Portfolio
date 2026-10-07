@@ -217,7 +217,7 @@ const pt: CaseStudy = {
         {
           kind: "p",
           text:
-            "O serviço mantém cadência própria: 58 deploys em dois meses e meio, cerca de cinco por semana, sem depender do ciclo dos outros times.",
+            "O serviço mantém cadência própria, com várias entregas por semana, sem depender do ciclo dos outros times.",
         },
         {
           kind: "p",
@@ -446,7 +446,7 @@ const en: CaseStudy = {
         {
           kind: "p",
           text:
-            "The service keeps its own cadence: 58 deploys in two and a half months, about five a week, without depending on other teams' cycles.",
+            "The service keeps its own cadence, with several releases per week, without depending on other teams' cycles.",
         },
         {
           kind: "p",

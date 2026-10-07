@@ -37,7 +37,7 @@ const pt = {
   work: "Projetos",
   experience: "Experiência",
   professional: "Profissional",
-  internshipSince: "Estágio · desde 2025",
+  internshipSince: "Desde 2025",
   underNda: "Sob confidencialidade",
   ndaNote: "Código fechado. O que dá para mostrar é a decisão e o que ela mudou.",
   academic: "Acadêmico",
@@ -53,7 +53,9 @@ const pt = {
   moreInpe: "Visualização de dados coletados pelo INPE com UFRJ e Furnas, para estudo de balanço de carbono",
   moreSql: "Cola um script SQL, sai o diagrama entidade-relacionamento, em três dialetos e sem subir banco",
   moreInbox: "Triagem de e-mail com LLM em contratos estruturados por JSON Schema",
-  moreAnka: "Gestão de carteiras de investimento com Fastify, Prisma e Next.js",
+  moreBasis: "Plataforma de gestão de investimentos em monólito modular DDD, com Python, FastAPI e React",
+  moreSprintline: "Tracking ágil com kanban e sprints, e métricas confiáveis calculadas de um event log append-only",
+  moreDueto: "Agenda compartilhada para Android, com privacidade por conexão e recorrência em grade (RFC 5545)",
   moreRelay: "Microserviço que leva review de pull request para onde a conversa já acontece",
   moreBurndown: "Burndown integrado ao Trello, com velocidade de equipe e indicadores",
   moreArsenal: "Catálogo local-first de inventário, sem conta e sem telemetria",
@@ -70,20 +72,20 @@ const pt = {
     "Decidimos reconstruir do zero como serviço dedicado dentro do ecossistema, em vez de remendar por partes. Mesmo banco da plataforma, schema separado, e autorização delegada ao serviço que já existia em vez de duplicar regra de acesso.",
   outcomeLabel: "Resultado",
   outcomeA:
-    "As funções que existiam só no papel passaram a ser usadas de fato, agora dentro da plataforma que a empresa já abre todo dia. O serviço mantém cadência própria:",
-  outcomeB: "deploys em dois meses e meio",
+    "As funções que existiam só no papel passaram a ser usadas de fato, agora dentro da plataforma que a empresa já abre todo dia. O serviço ganhou cadência própria:",
+  outcomeB: "várias entregas por semana, sem depender do ciclo de outros times",
   outcomeC:
-    ". O time ficou visivelmente mais ativo, deixou de ser usuário passivo e virou proponente de melhoria.",
+    ". O time deixou de ser usuário passivo e virou proponente de melhoria.",
 
   otherWorkTitle: "Outras entregas",
-  otherWorkOutcome: "Frontend de plataforma entregue a cliente de grande porte, com 210 commits de autoria própria e entrega rastreada do requisito ao deploy.",
+  otherWorkOutcome: "Frontend de plataforma entregue a cliente de grande porte, com entrega rastreada do requisito ao deploy.",
   otherWorkA:
     "Respondo também pelo frontend de plataformas entregues a clientes de grande porte, e contribuo em serviços de apoio como autorização centralizada e notificações. Documentação de arquitetura em C4 e ADR, migrations deploy-safe, e quality gate no CI com",
-  otherWorkB: "arquivos de teste rodando a cada PR.",
+  otherWorkB: "testes de unidade, integração e e2e a cada PR.",
 
   // academico
   quantumTitle: "Quantum CRM · 1000 Valle",
-  quantumOutcome: "Entregue em três sprints com cliente real e no ar. Maior contribuidor do time: 301 commits, contra 113 do segundo.",
+  quantumOutcome: "Entregue em três sprints com cliente real e no ar, em uso na operação da concessionária.",
   quantumDesc:
     "CRM completo para a concessionária 1000 Valle Multimarcas: leads, clientes, veículos, negociações, equipes e lojas, com dashboard operacional e analítico. Entregue em Scrum com parceiro real.",
   quantum1: "Monólito modular em NestJS com camadas explícitas, porque o produto tem contextos distintos mas não tem escala que pague microserviço.",
@@ -95,7 +97,7 @@ const pt = {
   // pessoal
   archflowTitle: "ArchFlow",
   archflowOutcome:
-    "Primeiro frontend completo do produto entregue em uma leva, 73 arquivos, e é a base sobre a qual o projeto seguiu.",
+    "Primeiro frontend completo do produto, entregue de ponta a ponta — virou a base sobre a qual o projeto seguiu com outro desenvolvedor.",
   archflowDesc:
     "Ferramenta de gestão ágil que trata arquitetura como parte do fluxo, não como documento à parte: decisão arquitetural, diagrama e story ficam no mesmo lugar, em vez de espalhados por três ferramentas que não conversam. Concebi o produto e entreguei o primeiro frontend completo, publicado sob o nome AgileTracker. O projeto seguiu depois com outro desenvolvedor, sobre essa base.",
   archflow1:
@@ -108,13 +110,13 @@ const pt = {
     "Chart.js para transformar métricas do quadro em indicadores visuais sem construir a camada de visualização do zero.",
 
   // experiencia
-  expAutoURole: "Estagiário de Desenvolvimento · AutoU",
+  expAutoURole: "Desenvolvedor Full Stack · AutoU",
   expAutoUWhen: "Dez 2025 até hoje",
   expAutoUWhere: "Rio de Janeiro · Remoto",
   expAutoU1: "Principal desenvolvedor de uma plataforma interna usada no dia a dia por toda a empresa",
   expAutoU2: "Respondo pela arquitetura do ecossistema e pelo caminho que leva do requisito ao ar",
   expAutoU3: "Front em React e TypeScript, back em FastAPI e NestJS, sobre PostgreSQL em nuvem",
-  expAutoU4: "Prática de ADR, migrations deploy-safe e quality gate no CI a cada pull request",
+  expAutoU4: "Prática de ADR, migrations deploy-safe e quality gate no CI com testes unitários, de integração e e2e a cada pull request",
 
   expAllTechRole: "Estagiário de Desenvolvimento · AllTechBR",
   expAllTechWhen: "Jul 2025 a Dez 2025",
@@ -175,7 +177,7 @@ const en: Record<keyof typeof pt, string> = {
   work: "Projects",
   experience: "Experience",
   professional: "Professional",
-  internshipSince: "Internship · since 2025",
+  internshipSince: "Since 2025",
   underNda: "Under NDA",
   ndaNote: "Closed source. What I can show is the decision and what it changed.",
   academic: "Academic",
@@ -191,7 +193,9 @@ const en: Record<keyof typeof pt, string> = {
   moreInpe: "Visualising data collected by INPE with UFRJ and Furnas, for a carbon balance study",
   moreSql: "Paste a SQL script, get the entity-relationship diagram, across three dialects and with no database to spin up",
   moreInbox: "Email triage with an LLM under contracts structured by JSON Schema",
-  moreAnka: "Investment portfolio management with Fastify, Prisma and Next.js",
+  moreBasis: "Investment management platform as a DDD modular monolith, in Python, FastAPI and React",
+  moreSprintline: "Agile tracking with kanban and sprints, and trustworthy metrics computed from an append-only event log",
+  moreDueto: "Shared calendar for Android, with per-connection privacy and grid recurrence (RFC 5545)",
   moreRelay: "A microservice that takes pull request reviews to where the conversation already happens",
   moreBurndown: "Burndown integrated with Trello, with team velocity and indicators",
   moreArsenal: "A local-first inventory catalogue, no account and no telemetry",
@@ -207,18 +211,18 @@ const en: Record<keyof typeof pt, string> = {
     "We chose to rebuild from scratch as a dedicated service inside the ecosystem, rather than patch it piece by piece. Same platform database, separate schema, and authorisation delegated to the service that already existed instead of duplicating access rules.",
   outcomeLabel: "Outcome",
   outcomeA:
-    "Features that existed only on paper are now genuinely used, inside the platform the company already opens every day. The service keeps its own cadence:",
-  outcomeB: "deploys in two and a half months",
-  outcomeC: ". The team became visibly more active, going from passive users to proposing improvements.",
+    "Features that existed only on paper are now genuinely used, inside the platform the company already opens every day. The service gained its own cadence:",
+  outcomeB: "several releases per week, without depending on other teams' cycles",
+  outcomeC: ". The team went from passive users to proposing improvements.",
 
   otherWorkTitle: "Other work",
-  otherWorkOutcome: "Frontend of a platform delivered to a large client, with 210 commits of my own authorship and delivery traced from requirement to deploy.",
+  otherWorkOutcome: "Frontend of a platform delivered to a large client, with delivery traced from requirement to deploy.",
   otherWorkA:
     "I also own the frontend of platforms delivered to large clients, and contribute to supporting services such as centralised authorisation and notifications. Architecture documented in C4 and ADRs, deploy-safe migrations, and a CI quality gate with",
-  otherWorkB: "test files running on every PR.",
+  otherWorkB: "unit, integration and e2e tests on every PR.",
 
   quantumTitle: "Quantum CRM · 1000 Valle",
-  quantumOutcome: "Delivered in three sprints with a real client and shipped. Top contributor on the team: 301 commits against 113 for the second.",
+  quantumOutcome: "Delivered in three sprints with a real client and shipped, in use in the dealership's daily operation.",
   quantumDesc:
     "A full CRM for the 1000 Valle Multimarcas dealership: leads, customers, vehicles, deals, teams and stores, with operational and analytical dashboards. Delivered in Scrum with a real client.",
   quantum1: "Modular monolith in NestJS with explicit layers, because the product has distinct contexts but not the scale to justify microservices.",
@@ -229,7 +233,7 @@ const en: Record<keyof typeof pt, string> = {
 
   archflowTitle: "ArchFlow",
   archflowOutcome:
-    "The product's first complete frontend delivered in one go, 73 files, and it is the base the project carried on from.",
+    "The product's first complete frontend, delivered end to end — it became the base the project carried on from with another developer.",
   archflowDesc:
     "An agile management tool that treats architecture as part of the flow rather than a document on the side: the architectural decision, the diagram and the story live in one place instead of spread across three tools that never talk to each other. I conceived the product and delivered its first complete frontend, published under the name AgileTracker. The project later carried on with another developer, on top of that base.",
   archflow1:
@@ -241,13 +245,13 @@ const en: Record<keyof typeof pt, string> = {
   archflow4:
     "Chart.js to turn board metrics into visual indicators without building the charting layer from scratch.",
 
-  expAutoURole: "Software Development Intern · AutoU",
+  expAutoURole: "Full Stack Developer · AutoU",
   expAutoUWhen: "Dec 2025 to today",
   expAutoUWhere: "Rio de Janeiro · Remote",
   expAutoU1: "Lead developer of an internal platform used daily across the company",
   expAutoU2: "I own the ecosystem architecture and the path that takes a requirement to production",
   expAutoU3: "React and TypeScript on the front, FastAPI and NestJS on the back, over PostgreSQL in the cloud",
-  expAutoU4: "ADRs, deploy-safe migrations and a CI quality gate on every pull request",
+  expAutoU4: "ADRs, deploy-safe migrations and a CI quality gate with unit, integration and e2e tests on every pull request",
 
   expAllTechRole: "Software Development Intern · AllTechBR",
   expAllTechWhen: "Jul 2025 to Dec 2025",
